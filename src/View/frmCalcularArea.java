@@ -56,7 +56,7 @@ public class frmCalcularArea extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel7.setText("Projeto Calcular Área");
+        jLabel7.setText(" Calculadora área");
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -196,17 +196,20 @@ public class frmCalcularArea extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(69, 69, 69)
                 .addComponent(jLabel7)
-                .addContainerGap(66, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(82, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel7)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -225,31 +228,6 @@ public class frmCalcularArea extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rdbQuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbQuadradoActionPerformed
-        this.txtAltura.setEnabled(true);
-        this.txtBase.setEnabled(true);
-        this.txtRaio.setEnabled(false);
-        
-    }//GEN-LAST:event_rdbQuadradoActionPerformed
-
-    private void txtBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBaseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBaseActionPerformed
-
-    private void rdbTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbTrianguloActionPerformed
-                                           
-        this.txtAltura.setEnabled(true);
-        this.txtBase.setEnabled(true);
-        this.txtRaio.setEnabled(false);
-    }//GEN-LAST:event_rdbTrianguloActionPerformed
-
-    private void rdbCirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbCirculoActionPerformed
-                                        
-        this.txtAltura.setEnabled(false);
-        this.txtBase.setEnabled(false);
-        this.txtRaio.setEnabled(true);
-    }//GEN-LAST:event_rdbCirculoActionPerformed
-
     private void btnCalcularAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularAreaActionPerformed
         //Inicializando as variáveis
         double area = 0;
@@ -262,21 +240,45 @@ public class frmCalcularArea extends javax.swing.JFrame {
         if (this.rdbQuadrado.isSelected()){
             //Fazendo a conversão de valores
             altura = Double.valueOf(this.txtAltura.getText());
-            base = Double.valueOf(this.txtBase.getText());            
+            base = Double.valueOf(this.txtBase.getText());
             area = objArea.calcularArea(base, altura);
-        }   
+        }
         if (this.rdbTriangulo.isSelected()){
             altura = Double.valueOf(this.txtAltura.getText());
-            base = Double.valueOf(this.txtBase.getText());            
+            base = Double.valueOf(this.txtBase.getText());
             area = objArea.calcularArea(base, altura, 2);
         }
         if (this.rdbCirculo.isSelected()){
             raio = Double.valueOf(this.txtRaio.getText());
             area = objArea.calcularArea(raio);
-        }   
+        }
         //Exibir o resultado
         this.txtResultado.setText(String.valueOf(area));
     }//GEN-LAST:event_btnCalcularAreaActionPerformed
+
+    private void txtBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBaseActionPerformed
+
+    private void rdbCirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbCirculoActionPerformed
+
+        this.txtAltura.setEnabled(false);
+        this.txtBase.setEnabled(false);
+        this.txtRaio.setEnabled(true);
+    }//GEN-LAST:event_rdbCirculoActionPerformed
+
+    private void rdbTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbTrianguloActionPerformed
+
+        this.txtAltura.setEnabled(true);
+        this.txtBase.setEnabled(true);
+        this.txtRaio.setEnabled(false);
+    }//GEN-LAST:event_rdbTrianguloActionPerformed
+
+    private void rdbQuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbQuadradoActionPerformed
+        this.txtAltura.setEnabled(true);
+        this.txtBase.setEnabled(true);
+        this.txtRaio.setEnabled(false);
+    }//GEN-LAST:event_rdbQuadradoActionPerformed
 
     /**
      * @param args the command line arguments
